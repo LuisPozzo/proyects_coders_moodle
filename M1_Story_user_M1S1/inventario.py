@@ -13,13 +13,9 @@ def validar_str(dato):
 def validar_numerico(texto,tipo):
     while True:
         try:
-            #Validmaos que el numero sea positivo, 
-            # si el valor es negativo se lanza una excepción ValueError, 
-            # que es capturada por el bloque except, mostrando un mensaje de error 
-            # y solicitando al usuario que ingrese un valor nuevamente. Si el valor es positivo, se retorna ese valor, 
-            # permitiendo que el flujo continúe normalmente.
+            #Se solicita numero y se realiza la conversion, en caso de presentar error, saltará a la linea 25
             numero = tipo (input(f"Ingrese el {texto}: "))
-
+            #Se valida que el numero sea positivo, si es negativo se muestra un mensaje de error y se solicita nuevamente el ingreso del número. Si el número es positivo, se retorna el valor, permitiendo que el flujo del programa continúe normalmente.
             if numero < 0:
                 print("Error 2: El valor debe ser un número positivo.")
                 continue
