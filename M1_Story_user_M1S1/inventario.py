@@ -7,7 +7,7 @@ def validar_str(dato):
         # Si 'dato' es una cadena vacía, se evalúa como False, y el programa entra en el bloque else, mostrando un mensaje de error y solicitando al usuario que ingrese un nombre válido. Si dato contiene algún valor (es decir, no está vacía), se evalúa como True, y el programa retorna ese valor, permitiendo que el flujo continúe normalmente.
         if dato:
             return dato
-        print("Error 1: El campo no puede estar vacío. Inténtelo nuevamente...")
+        print ('Error 1: Entrada inválida. Por favor, inténtelo de nuevo.')
         dato = input("Ingrese un nombre válido: ").strip().title()
 
 def validar_numerico(texto,tipo):
@@ -23,7 +23,7 @@ def validar_numerico(texto,tipo):
             return numero
         
         except ValueError:
-            print ('Error 3: Entrada inválida. Por favor, inténtelo de nuevo.')
+            print ('Error 1: Entrada inválida. Por favor, inténtelo de nuevo.')
             continue
 
 # PROGRAMA PRINCIPAL -------------------------------------------
@@ -41,19 +41,18 @@ while True:
         costo_total = precio * cantidad
 
         # TASK 4: salida de consola con formato solicitado
-        print(15 * "--")
+        print(30 * "--")
         print( f"Producto: {nombre} | Precio: {precio} | Cantidad: {cantidad} | Total: {costo_total}")
-        print(15 * "--")
+        print(30 * "--")
 
         break
 
     except Exception as e:  # se utiliza de forma genérica para reintentar
-        print(f"Error 4: {e} \nEntrada inválida. Por favor, inténtelo de nuevo. ")
+        print(f"Error 3: {e} \nEntrada inválida. Por favor, inténtelo de nuevo. ")
         continue
 
 # --------------------------------------------------------------
 # Este script solicita el nombre, precio y cantidad de un producto,
-# valida cada dato en bucles de repetición según la historia de
-# usuario, calcula el costo total y muestra en pantalla una línea
-# con todos los valores formateados. Los comentarios explican cada
-# bloque de código y al final se resume la funcionalidad global.
+# valida cada dato en bucles de repetición según la historia de usuario, 
+# calcula el costo total y muestra en pantalla una línea.
+
