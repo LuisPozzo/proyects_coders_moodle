@@ -14,6 +14,7 @@ def validar_numerico(texto,tipo):
     while True:
         try:
             #Se solicita numero y se realiza la conversion, en caso de presentar error, saltará a la linea 25
+            
             numero = tipo (input(f"Ingrese el {texto}: "))
             #Se valida que el numero sea positivo, si es negativo se muestra un mensaje de error y se solicita nuevamente el ingreso del número. Si el número es positivo, se retorna el valor, permitiendo que el flujo del programa continúe normalmente.
             if numero < 0:
@@ -21,19 +22,19 @@ def validar_numerico(texto,tipo):
                 continue
             return numero
         
-        except ValueError as e:
-            print ('Error 1: Entrada inválida. Por favor, inténtelo de nuevo.')
+        except ValueError:
+            print ('Error 3: Entrada inválida. Por favor, inténtelo de nuevo.')
             continue
 
-
 # PROGRAMA PRINCIPAL -------------------------------------------
-
 # bucle que se ejecuta hasta que el usuario proporciona entradas válidas
 while True:
     # TASK 2: declaración de variables que almacenan los datos
     try:
         nombre = validar_str(input("Name: ").strip().title())
+        print('')
         precio = validar_numerico("precio",float)
+        print('')
         cantidad = validar_numerico( "cantidad",int)
 
         # TASK 3: cálculo del costo total tras validar las entradas
@@ -41,16 +42,14 @@ while True:
 
         # TASK 4: salida de consola con formato solicitado
         print(15 * "--")
-        print(
-            f"Producto: {nombre} | Precio: {precio} | Cantidad: {cantidad} | Total: {costo_total}"
-        )
+        print( f"Producto: {nombre} | Precio: {precio} | Cantidad: {cantidad} | Total: {costo_total}")
+        print(15 * "--")
 
         break
 
     except Exception as e:  # se utiliza de forma genérica para reintentar
-        print(f"Error 3: {e} \nEntrada inválida. Por favor, inténtelo de nuevo. ")
+        print(f"Error 4: {e} \nEntrada inválida. Por favor, inténtelo de nuevo. ")
         continue
-
 
 # --------------------------------------------------------------
 # Este script solicita el nombre, precio y cantidad de un producto,
