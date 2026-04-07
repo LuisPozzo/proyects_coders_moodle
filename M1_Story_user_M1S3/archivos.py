@@ -1,4 +1,3 @@
-import json
 import csv  
 from pathlib import Path
 from servicios import _buscar_producto, validar_str
@@ -29,7 +28,6 @@ def guardar_csv(inventario: list):
 
     except Exception as e:
         print("Error al guardar:", e)
-
 
 def cargar_csv(inventario: list):
     """
@@ -99,37 +97,3 @@ def cargar_csv(inventario: list):
         print("Archivo no encontrado.")
     except Exception as e:
         print("Error al cargar:", e)
-        
-
-
-# Get the absolute path of the current file / Obtener la ruta absoluta del archivo actual (storage.py)
-ruta = Path(__file__).resolve().parent
-file_path = ruta / "inventario.json"
-
-def guardar_datos(inventarios:list):
-    """
-    Guarda los datos en un archivo JSON en la misma carpeta.
-    """
-    with open(file_path, "w", encoding="utf-8") as file:
-        json.dump(inventarios, file, indent=4)
-
-def cargar_datos(inventarios:list):
-    """
-    Carga los datos desde un archivo JSON si existe.
-    """
-    try:
-        if file_path.exists():
-            with open(file_path, "r", encoding="utf-8") as file:
-                data = json.load(file)
-
-                if isinstance (data,list):
-                    inventarios.clear()
-                    inventarios.extend(data)
-                else:
-                    print("Invalid data format. Starting empty list.")
-        else:
-            print("(No hay datos previos encontrados.)\n")
-
-    except FileNotFoundError:
-        # If the file doesn't exist, it's no big deal / Si no existe el archivo, no pasa nada
-        pass

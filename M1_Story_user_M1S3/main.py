@@ -1,6 +1,6 @@
 from servicios import *
 from data import inventarios
-from archivos import cargar_datos, guardar_datos,guardar_csv,cargar_csv
+from archivos import guardar_csv,cargar_csv
 
 # PROGRAMA PRINCIPAL -------------------------------------------
 # bucle que se ejecuta hasta que el usuario proporciona entradas válidas
@@ -33,7 +33,6 @@ while True:
             calcular_estadisticas(inventarios)
         elif option == "7":
             print("Hasta Luego!")
-            #guardar_datos(inventarios)
             guardar_csv (inventarios)
             
             
